@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python
 
 # Update dan install git
 RUN apt update && apt upgrade -y && apt install -y git
