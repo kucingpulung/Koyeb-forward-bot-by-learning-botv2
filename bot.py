@@ -12,7 +12,7 @@ from database import db
 
 # ✅ Tambahkan ini untuk web server dummy
 from aiohttp import web
-from plugins import web_server
+from plugins.webserver import web_server
 
 # Setup logging
 logging.config.fileConfig('logging.conf')
