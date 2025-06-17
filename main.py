@@ -11,23 +11,19 @@ from pyrogram import idle
 
 app = Bot()
 
-# Fungsi untuk menjalankan bot
-async def bot_runner():
+async def main():
     await app.start()
     print("🤖 Bot telah berjalan...")
-    await idle()
+
+    # Jalankan webserver sebagai task terpisah
+    asyncio.create_task(start_webserver())
+
+    await idle()  # Menunggu hingga bot dimatikan secara manual (CTRL+C atau stop signal)
     await app.stop()
     print("🤖 Bot telah berhenti.")
 
-# Fungsi utama untuk menjalankan bot dan webserver secara paralel
-async def runner():
-    await asyncio.gather(
-        bot_runner(),
-        start_webserver()
-    )
-
 if __name__ == "__main__":
-    asyncio.run(runner())
+    asyncio.run(main())
 
 # Jishu Developer 
 # Jangan Hapus Kredit 🥺
