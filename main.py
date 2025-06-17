@@ -1,13 +1,9 @@
-# Jishu Developer 
-# Jangan Hapus Kredit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
+# main.py
 
 from bot import Bot
-import asyncio
 from webserver import start_webserver
 from pyrogram import idle
+import asyncio
 
 app = Bot()
 
@@ -15,18 +11,12 @@ async def main():
     await app.start()
     print("🤖 Bot telah berjalan...")
 
-    # Jalankan webserver sebagai task terpisah
+    # Jalankan webserver sebagai background task
     asyncio.create_task(start_webserver())
 
-    await idle()  # Menunggu hingga bot dimatikan secara manual (CTRL+C atau stop signal)
+    await idle()  # Tunggu hingga bot dihentikan secara manual
     await app.stop()
     print("🤖 Bot telah berhenti.")
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-# Jishu Developer 
-# Jangan Hapus Kredit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
