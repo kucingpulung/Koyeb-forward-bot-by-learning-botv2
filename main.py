@@ -7,10 +7,19 @@
 
 
 from bot import Bot
+import asyncio
+from webserver import start_webserver
+from pyrogram import idle
 
 app = Bot()
-app.run()
 
+async def main():
+    await app.start()
+    await start_webserver()
+    await idle()
+    await app.stop()
+
+asyncio.run(main())
 
 
 
