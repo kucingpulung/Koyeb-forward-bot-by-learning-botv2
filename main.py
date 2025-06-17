@@ -5,17 +5,21 @@ from pyrogram import idle
 
 app = Bot()
 
-async def start_all():
+async def start_bot():
     await app.start()
     print("🤖 Bot telah berjalan...")
-    await start_webserver()  # Mulai webserver (port 80)
-    print("🌐 Webserver aktif.")
-    await idle()  # Tetap aktif hingga dihentikan
+    await idle()
     await app.stop()
     print("❌ Bot dihentikan.")
 
+async def main():
+    await asyncio.gather(
+        start_webserver(),  # Jalan webserver
+        start_bot()         # Jalan bot
+    )
+
 if __name__ == "__main__":
     try:
-        asyncio.run(start_all())
+        asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
         print("🔻 Proses dihentikan.")
