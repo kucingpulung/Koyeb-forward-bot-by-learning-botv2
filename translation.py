@@ -1,154 +1,130 @@
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
-
-
-
-
 import os
 from config import Config
 
 class Translation(object):
-  START_TXT = """Hey {}
+  START_TXT = """Hai {}
 
-➻ I Am A Advanced Auto Forward Bot
-  
-➻ I Can Forward All Message From One Channel To Another Channel 
-  
-➻ Click Help Button To Know More About Me
-  
-<b>Bot Is Made By @Madflix_Bots</b>"""
+➻ Saya adalah Bot Auto Forward canggih
+
+➻ Saya bisa meneruskan semua pesan dari satu channel ke channel lain
+
+➻ Klik tombol Bantuan untuk tahu lebih lanjut tentang saya
+
+<b>Bot ini dibuat oleh @Madflix_Bots</b>"""
 
 
-  HELP_TXT = """<b><u>🛠️ Help</b></u>
+  HELP_TXT = """<b><u>🛠️ Bantuan</b></u>
 
-<b><u>📚 Available Commands :</u></b>
-⏣ __/start - Check I'm Alive__ 
-⏣ __/forward - Forward Messages__
-⏣ __/unequify - Delete Duplicate Messages In Channels__
-⏣ __/settings - Configure Your Settings__
-⏣ __/reset - Reset Your Settings__
+<b><u>📚 Perintah yang Tersedia :</u></b>
+⏣ __/start - Cek apakah saya aktif__  
+⏣ __/forward - Teruskan pesan__  
+⏣ __/unequify - Hapus pesan duplikat di channel__  
+⏣ __/settings - Atur konfigurasi Anda__  
+⏣ __/reset - Atur ulang pengaturan Anda__
 
-<b><u>💢 Features :</b></u>
-► __Forward Message From Public Channel To Your Channel Without Admin Permission. If The Channel Is Private Need Admin Permission__
-► __Forward Message From Private Channel To Your Channel By Using Userbot(User Must Be Member In There)__
-► __Custom Caption__
-► __Custom Button__
-► __Support Restricted Chats__
-► __Skip Duplicate Messages__
-► __Filter Type Of Messages__
-► __Skip Messages Based On Extensions & Keywords & Size__
+<b><u>💢 Fitur :</b></u>
+► __Teruskan pesan dari channel publik ke channel Anda tanpa perlu admin. Jika channel privat, perlu izin admin.__  
+► __Teruskan pesan dari channel privat ke channel Anda menggunakan userbot (Userbot harus menjadi anggota di sana)__  
+► __Caption khusus__  
+► __Tombol khusus__  
+► __Mendukung obrolan terbatas__  
+► __Lewati pesan duplikat__  
+► __Filter jenis pesan__  
+► __Lewati pesan berdasarkan ekstensi, kata kunci, dan ukuran__
 """
   
-  HOW_USE_TXT = """<b><u>⚠️ Before Forwarding :</b></u>
+  HOW_USE_TXT = """<b><u>⚠️ Sebelum Meneruskan :</b></u>
   
-► __Add A Bot Or Userbot__
-► __Add Atleast One To Channel (Your Bot/Userbot Must Be Admin In There)__
-► __You Can Add Chats Or Bots By Using /settings__
-► __If The **From Channel** Is Private Your Userbot Must Be Member In There Or Your Bot Must Need Admin Permission In There Also__
-► __Then Use /forward To Forward Messages__"""
+► __Tambahkan Bot atau Userbot terlebih dahulu__  
+► __Tambahkan minimal satu ke channel (Bot/Userbot Anda harus menjadi admin di sana)__  
+► __Anda bisa menambahkan obrolan atau bot melalui perintah /settings__  
+► __Jika **From Channel** bersifat privat, maka userbot Anda harus menjadi anggota atau bot Anda harus admin di sana juga__  
+► __Lalu gunakan perintah /forward untuk meneruskan pesan__"""
   
-  ABOUT_TXT = """<b>🤖 My Name :</b> {}
-<b>📝 Language :</b> <a href='https://python.org'>Python 3</a>
+  ABOUT_TXT = """<b>🤖 Nama Saya :</b> {}
+<b>📝 Bahasa Pemrograman :</b> <a href='https://python.org'>Python 3</a>
 <b>📚 Library :</b> <a href='https://pyrogram.org'>Pyrogram 2.0</a>
 <b>🚀 Server :</b> <a href='https://heroku.com'>Heroku</a>
 <b>📢 Channel :</b> <a href='https://t.me/Madflix_Bots'>Madflix Botz</a>
 <b>🧑‍💻 Developer :</b> <a href='https://t.me/CallAdminRobot'>Jishu Developer</a>
 
-<b>♻️ Bot Made By :</b> @Madflix_Bots"""
+<b>♻️ Bot Ini Dibuat Oleh :</b> @Madflix_Bots"""
   
-  STATUS_TXT = """<b><u>Bot Status</u></b>
+  STATUS_TXT = """<b><u>Status Bot</u></b>
   
-<b>👱 Total Users :</b> <code>{}</code>
+<b>👱 Total Pengguna :</b> <code>{}</code>
 
-<b>🤖 Total Bots :</b> <code>{}</code>
+<b>🤖 Total Bot :</b> <code>{}</code>
 
-<b>🔃 Forwardings :</b> <code>{}</code>
+<b>🔃 Penerusan :</b> <code>{}</code>
 """
   
-  FROM_MSG = "<b><u>Set Source Chat</></>\n\nForward The Last Message Or Last Message Link Of Source Chat.\n/cancel - To Cancel This Process"
-  TO_MSG = "<b><u>Choose Target Chat</u></b>\n\nChoose Your Target Chat From The Given Buttons.\n/cancel - To Cancel This Process"
-  SKIP_MSG = "<b><u>Set Message Skiping Number</u></b>\n\nSkip The Message As Much As You Enter The Number And The Rest Of The Message Will Be Forwarded\nDefault Skip Number = <code>0</code>\n<code>eg: You Enter 0 = 0 Message Skiped\nYou Enter 5 = 5 Message Skiped</code>\n/cancel - To Cancel This Process"
-  CANCEL = "Process Cancelled Succefully !"
-  BOT_DETAILS = "<b><u>📄 Bot Details</u></b>\n\n<b>➣ Name :</b> <code>{}</code>\n<b>➣ Bot ID :</b> <code>{}</code>\n<b>➣ Username :</b> @{}"
-  USER_DETAILS = "<b><u>📄 UserBot Details</u></b>\n\n<b>➣ Name :</b> <code>{}</code>\n<b>➣ User ID :</b> <code>{}</code>\n<b>➣ Username :</b> @{}"  
+  FROM_MSG = "<b><u>Setel Chat Sumber</u></b>\n\nTeruskan pesan terakhir atau tautan pesan terakhir dari chat sumber.\n/cancel - Untuk membatalkan proses ini"
+  TO_MSG = "<b><u>Pilih Chat Tujuan</u></b>\n\nPilih chat tujuan Anda dari tombol yang tersedia.\n/cancel - Untuk membatalkan proses ini"
+  SKIP_MSG = "<b><u>Atur Jumlah Pesan yang Dilewati</u></b>\n\nLewati pesan sebanyak angka yang Anda masukkan, sisanya akan diteruskan.\nLewati default = <code>0</code>\n<code>cth: Masukkan 0 = tidak ada yang dilewati\nMasukkan 5 = 5 pesan dilewati</code>\n/cancel - Untuk membatalkan proses ini"
+  CANCEL = "Proses berhasil dibatalkan!"
+  BOT_DETAILS = "<b><u>📄 Detail Bot</u></b>\n\n<b>➣ Nama :</b> <code>{}</code>\n<b>➣ Bot ID :</b> <code>{}</code>\n<b>➣ Username :</b> @{}"
+  USER_DETAILS = "<b><u>📄 Detail UserBot</u></b>\n\n<b>➣ Nama :</b> <code>{}</code>\n<b>➣ User ID :</b> <code>{}</code>\n<b>➣ Username :</b> @{}"  
          
-  TEXT = """<b><u>Forward Status</u></b>
+  TEXT = """<b><u>Status Penerusan</u></b>
   
-<b>🕵 Fetch Message :</b> <code>{}</code>
+<b>🕵 Pesan Diambil :</b> <code>{}</code>
 
-<b>✅ Successfully Forward :</b> <code>{}</code>
+<b>✅ Berhasil Diteruskan :</b> <code>{}</code>
 
-<b>👥 Dublicate Message :</b> <code>{}</code>
+<b>👥 Pesan Duplikat :</b> <code>{}</code>
 
-<b>🗑 Deleted Message :</b> <code>{}</code>
+<b>🗑 Pesan Dihapus :</b> <code>{}</code>
 
-<b>🪆 Skipped Message :</b> <code>{}</code>
+<b>🪆 Pesan Dilewati :</b> <code>{}</code>
 
-<b>🔁 Filtered Message :</b> <code>{}</code>
+<b>🔁 Pesan Difilter :</b> <code>{}</code>
 
-<b>📊 Current Status :</b> <code>{}</code>
+<b>📊 Status Saat Ini :</b> <code>{}</code>
 
-<b>🔥 Percentage :</b> <code>{}</code> %
+<b>🔥 Persentase :</b> <code>{}</code> %
 
 {}
 """
 
-  TEXT1 = """<b><u>Forwarded Status</u></b>
+  TEXT1 = """<b><u>Status Setelah Diteruskan</u></b>
 
-<b>🕵 Fetched Message :</b> <code>{}</code>
+<b>🕵 Pesan Diambil :</b> <code>{}</code>
 
-<b>✅ Successfully Forward :</b> <code>{}</code>
+<b>✅ Berhasil Diteruskan :</b> <code>{}</code>
 
-<b>👥 Dublicate Message :</b> <code>{}</code>
+<b>👥 Pesan Duplikat :</b> <code>{}</code>
 
-<b>🗑 Deleted Message :</b> <code>{}</code>
+<b>🗑 Pesan Dihapus :</b> <code>{}</code>
 
-<b>🪆 Skipped :</b> <code>{}</code>
+<b>🪆 Dilewati :</b> <code>{}</code>
 
-<b>📊 Stats :</b> <code>{}</code>
+<b>📊 Statistik :</b> <code>{}</code>
 
-<b>⏳ Progress :</b> <code>{}</code>
+<b>⏳ Progres :</b> <code>{}</code>
 
-<b>⏰ ETA :</b> <code>{}</code>
+<b>⏰ Perkiraan Waktu :</b> <code>{}</code>
 
 {}"""
 
-  DUPLICATE_TEXT = """<b><u>Unequify Status</u></b>
+  DUPLICATE_TEXT = """<b><u>Status Pembersihan Duplikat</u></b>
 
-<b>🕵 Fetched Files :</b> <code>{}</code>
+<b>🕵 File Diambil :</b> <code>{}</code>
 
-<b>👥 Dublicate Deleted :</b> <code>{}</code>
+<b>👥 Duplikat Dihapus :</b> <code>{}</code>
 
 {}
 """
-  DOUBLE_CHECK = """<b><u>Double Checking</u></b>
+  DOUBLE_CHECK = """<b><u>Pemeriksaan Ganda</u></b>
   
-Before Forwarding The Messages Click The Yes Button Only After Checking The Following
+Sebelum meneruskan pesan, klik tombol Ya hanya jika semua berikut ini sudah dicek:
 
-<b>★ Your Bot :</b> [{botname}](t.me/{botuname})
-<b>★ From Channel :</b> <code>{from_chat}<>
-<b>★ To Channel :</b> <code>{to_chat}</code>
-<b>★ Skip Messages :</b> <code>{skip}</code>
+<b>★ Bot Anda :</b> [{botname}](t.me/{botuname})  
+<b>★ Dari Channel :</b> <code>{from_chat}</code>  
+<b>★ Ke Channel :</b> <code>{to_chat}</code>  
+<b>★ Lewati Pesan :</b> <code>{skip}</code>
 
-<i>° [{botname}](t.me/{botuname}) Must Be Admin In <b>Target Chat</b></i> (<code>{to_chat}</code>)
-<i>° If The <b>Source Chat</b> Is Private Your Userbot Must Be Member Or Your Bot Must Be Admin In There Also</i>
+<i>° [{botname}](t.me/{botuname}) harus menjadi admin di <b>Chat Tujuan</b></i> (<code>{to_chat}</code>)  
+<i>° Jika <b>Chat Sumber</b> bersifat privat, maka userbot Anda harus menjadi anggota atau bot harus admin juga</i>
 
-<b>If The Above Is Checked Then The Yes Button Can Be Clicked</b>"""
-
-
-
-
-
-
-
-
-
-
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
+<b>Jika semua sudah dicek, silakan klik tombol Ya</b>"""
