@@ -1,7 +1,4 @@
 #!/bin/bash
-
-cd /Ultra-Forward-Bot || exit 1
-
 # Install dependencies (jaga-jaga)
 pip3 install -U -r requirements.txt
 
