@@ -4,4 +4,4 @@ COPY requirements.txt /requirements.txt
 RUN pip3 install -U pip && pip3 install -r /requirements.txt
 COPY . start.sh /start.sh
 WORKDIR /Ultra-Forward-Bot
-CMD ["/bin/bash", "/start.sh"] 
+CMD ["python", "bot.py"] 
