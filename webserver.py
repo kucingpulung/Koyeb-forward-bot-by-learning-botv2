@@ -1,8 +1,12 @@
+# Webserver untuk Uptime Robot / Koyeb
+
 from aiohttp import web
 
+# Fungsi respons saat homepage diakses
 async def handle(request):
-    return web.Response(text="Bot aktif!")
+    return web.Response(text="✅ Bot aktif dan berjalan!")
 
+# Fungsi utama webserver
 async def start_webserver():
     app = web.Application()
     app.add_routes([web.get("/", handle)])
