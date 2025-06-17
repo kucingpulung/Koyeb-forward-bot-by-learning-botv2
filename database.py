@@ -104,15 +104,15 @@ class Database:
             'button': None,
             'db_uri': None,
             'filters': {
-               'poll': True,
-               'text': True,
-               'audio': True,
-               'voice': True,
+               'poll': False,
+               'text': False,
+               'audio': False,
+               'voice': False,
                'video': True,
-               'photo': True,
-               'document': True,
-               'animation': True,
-               'sticker': True
+               'photo': False,
+               'document': False,
+               'animation': False,
+               'sticker': False
             }
         }
         user = await self.col.find_one({'id':int(id)})
